@@ -1,0 +1,57 @@
+﻿@page
+@model CabinetulVeterinar.Pages.NewFolder5.DoctoriCautareModel
+@{
+    ViewData["Title"] = "Căutare Doctori";
+}
+
+<h2>Căutare Doctori</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="specializare">Selectați Specializarea</label>
+        <select id="specializare" name="Specializare" class="form-control" required>
+            <option value="Oncologie Veterinara">Oncologie Veterinară</option>
+            <option value="Dermatologie">Dermatologie</option>
+            <option value="Chirurgie Veterinara">Chirurgie Veterinară</option>
+            <!-- Adăugați alte specializări dacă este cazul -->
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Caută</button>
+</form>
+
+@if (Model.Doctori.Count > 0)
+{
+    <h3>Doctori cu Specializarea: @Model.SelectedSpecializare</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nume</th>
+                <th>Prenume</th>
+                <th>Email</th>
+                <th>Specializare</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var doctor in Model.Doctori)
+            {
+                <tr>
+                    <td>@doctor.DoctorID</td>
+                    <td>@doctor.Nume</td>
+                    <td>@doctor.Prenume</td>
+                    <td>@doctor.Email</td>
+                    <td>@doctor.Specializare</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (!string.IsNullOrEmpty(Model.SelectedSpecializare))
+{
+    <p>Nu există doctori cu specializarea selectată.</p>
+}
+
+<!-- Buton pentru revenire la pagina Pacienti -->
+<form method="get" asp-page="/Pacienti/Index" style="margin-top: 20px;">
+    <button type="submit" class="btn btn-secondary">Back</button>
+</form>

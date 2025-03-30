@@ -1,0 +1,57 @@
+﻿@page
+@model CabinetulVeterinar.Pages.NewFolder5.ProgramariBySpecializationModel
+
+<h2>Căutare programări după specializare</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="specializare">Selectați specializarea:</label>
+        <select id="specializare" name="Specializare" class="form-control" required>
+            <option value="">Selectați...</option>
+            <option value="Oncologie Veterinară">Oncologie Veterinară</option>
+            <option value="Dermatologie">Dermatologie</option>
+            <option value="Chirurgie">Chirurgie</option>
+            <!-- Adăugați mai multe opțiuni aici -->
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Caută</button>
+</form>
+
+@if (Model.ProgramariDetails.Count == 0)
+{
+    <p>Nu există programări pentru specializarea selectată.</p>
+}
+else
+{
+    <h3>Programări găsite</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Ora</th>
+                <th>Nume Pacient</th>
+                <th>Rasă Pacient</th>
+                <th>Nume Doctor</th>
+                <th>Specializare</th>
+                <th>Motiv</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var programare in Model.ProgramariDetails)
+            {
+                <tr>
+                    <td>@programare.DataProgramare</td>
+                    <td>@programare.OraProgramare</td>
+                    <td>@programare.NumePacient</td>
+                    <td>@programare.RasaPacient</td>
+                    <td>@programare.NumeDoctor</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<!-- Buton pentru revenire la pagina principală -->
+<form method="get" asp-page="/Pacienti/Index" style="margin-top: 20px;">
+    <button type="submit" class="btn btn-secondary">Back</button>
+</form>

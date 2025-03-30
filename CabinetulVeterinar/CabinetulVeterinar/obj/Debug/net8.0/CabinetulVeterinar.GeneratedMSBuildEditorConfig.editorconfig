@@ -1,0 +1,105 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CabinetulVeterinar
+build_property.RootNamespace = CabinetulVeterinar
+build_property.ProjectDir = C:\Users\Andreea\source\repos\CabinetulVeterinar\CabinetulVeterinar\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Andreea\source\repos\CabinetulVeterinar\CabinetulVeterinar
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/Doctori/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRG9jdG9yaVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/Index1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/Interogari.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW50ZXJvZ2FyaS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/NewFolder1/AddDoctor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3Rm9sZGVyMVxBZGREb2N0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/NewFolder1/EditDoctor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3Rm9sZGVyMVxFZGl0RG9jdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/NewFolder2/AddConsultatie.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3Rm9sZGVyMlxBZGRDb25zdWx0YXRpZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/NewFolder4/Vaccin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3Rm9sZGVyNFxWYWNjaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/NewFolder5/DoctoriCautareModel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3Rm9sZGVyNVxEb2N0b3JpQ2F1dGFyZU1vZGVsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/NewFolder5/PacientiByDoctorModel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3Rm9sZGVyNVxQYWNpZW50aUJ5RG9jdG9yTW9kZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/NewFolder5/ProgramariByDate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3Rm9sZGVyNVxQcm9ncmFtYXJpQnlEYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/NewFolder5/Tratamente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3Rm9sZGVyNVxUcmF0YW1lbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/Pacienti/AddPacient.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFjaWVudGlcQWRkUGFjaWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/Pacienti/EditPacient.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFjaWVudGlcRWRpdFBhY2llbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/Pacienti/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFjaWVudGlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andreea/source/repos/CabinetulVeterinar/CabinetulVeterinar/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-uvwmoay2oa

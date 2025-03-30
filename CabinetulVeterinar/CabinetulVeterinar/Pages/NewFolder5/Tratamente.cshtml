@@ -1,0 +1,82 @@
+﻿@page
+@model CabinetulVeterinar.Pages.NewFolder5.TratamenteModel
+
+<h2>Caută Tratamente Prescrise</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="numePacient">Introduceți numele pacientului:</label>
+        <input type="text" id="numePacient" name="NumePacientCautat" value="@Model.NumePacientCautat" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Caută</button>
+</form>
+
+<h2>Tratamente Prescrise și Doctori</h2>
+
+@if (Model.TratamentDetails.Count == 0)
+{
+    <p>Nu există informații despre doctorii care pot prescrie tratamente pentru pacientul specificat.</p>
+}
+else
+{
+    <h3>Informații despre doctori și tratamentele prescrise</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nume Doctor</th>
+                <th>Specializare</th>
+                <th>Medicament Prescris</th>
+                <th>Doză Recomandată</th>
+                <th>Mod Administrare</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tratament in Model.TratamentDetails)
+            {
+                <tr>
+                    <td>@tratament.NumeDoctor</td>
+                    <td>@tratament.Specializare</td>
+                    <td>@tratament.MedicamentPrescris</td>
+                    <td>@tratament.DozaRecomandata</td>
+                    <td>@tratament.ModAdministrare</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<h2>Statistici despre tratamente</h2>
+
+@if (Model.TratamenteStatistici.Count == 0)
+{
+    <p>Nu există informații despre statisticile tratamentelor pentru pacientul specificat.</p>
+}
+else
+{
+    <h3>Statistici despre durata tratamentelor</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pacient</th>
+                <th>Rasă</th>
+                <th>Numărul de tratamente</th>
+                <th>Medicamente Prescrise</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var statistica in Model.TratamenteStatistici)
+            {
+                <tr>
+                    <td>@statistica.NumePacient</td>
+                    <td>@statistica.RasaPacient</td>
+                    <td>@statistica.NumarTratamente</td>
+                    <td>@statistica.MedicamentePrescrise</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<form method="get" asp-page="/Pacienti/Index" style="margin-top: 20px;">
+    <button type="submit" class="btn btn-secondary">Înapoi</button>
+</form>

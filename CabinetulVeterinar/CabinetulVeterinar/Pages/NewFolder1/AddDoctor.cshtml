@@ -1,0 +1,42 @@
+﻿@page
+@model CabinetulVeterinar.Pages.Doctori.AddDoctorModel
+
+<h2>Adaugă Doctor</h2>
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <p class="text-success">@Model.Message</p>
+}
+
+<form method="post">
+    <div class="form-group">
+        <label for="name">Nume</label>
+        <input type="text" id="name" name="Doctor.Name" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="prenume">Prenume</label>
+        <input type="text" id="prenume" name="Doctor.Prenume" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="telefon">Telefon</label>
+        <input type="text" id="telefon" name="Doctor.Telefon" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Doctor.Email" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="adresa">Adresa</label>
+        <input type="text" id="adresa" name="Doctor.Adresa" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="specializare">Specializare</label>
+        <input type="text" id="specializare" name="Doctor.Specializare" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="password">Parola</label>
+        <input type="password" id="password" name="Doctor.Password" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Adaugă Doctor</button>
+</form>
+

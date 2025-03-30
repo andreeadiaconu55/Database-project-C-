@@ -1,0 +1,70 @@
+﻿@page
+@model CabinetulVeterinar.Pages.Interogari.InterogariModel
+
+<h2>Căutare Consultații și Statistici</h2>
+
+<form method="post" class="mb-4">
+    <div class="form-group">
+        <label for="numeDoctor">Introduceți Numele Doctorului:</label>
+        <input type="text" id="numeDoctor" name="NumeDoctor" class="form-control" value="@Model.NumeDoctor" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Caută</button>
+</form>
+
+<h3>Rezultatele Consultațiilor</h3>
+@if (Model.InterogariResults.Count == 0)
+{
+    <p>Nu există rezultate pentru numele introdus.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nume Doctor</th>
+                <th>Nume Pacient</th>
+                <th>Simptome</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rezultat in Model.InterogariResults)
+            {
+                <tr>
+                    <td>@rezultat.NumeDoctor</td>
+                    <td>@rezultat.NumePacient</td>
+                    <td>@rezultat.Simptome</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<h3>Statistici per Doctor</h3>
+@if (Model.DoctorConsultatiiResults.Count == 0)
+{
+    <p>Nu există statistici pentru numele introdus.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nume Doctor</th>
+                <th>Număr Consultații</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rezultat in Model.DoctorConsultatiiResults)
+            {
+                <tr>
+                    <td>@rezultat.NumeDoctor</td>
+                    <td>@rezultat.NumarConsultatii</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<form method="get" asp-page="/Pacienti/Index" style="margin-top: 20px;">
+    <button type="submit" class="btn btn-secondary">Înapoi</button>
+</form>

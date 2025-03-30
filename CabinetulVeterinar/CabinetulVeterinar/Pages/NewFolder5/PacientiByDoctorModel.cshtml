@@ -1,0 +1,47 @@
+﻿@page
+@model CabinetulVeterinar.Pages.NewFolder5.PacientiByDoctorModel
+
+<h2>Caută Pacienți după Doctor</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="numeDoctor">Introduceți numele doctorului:</label>
+        <input type="text" id="numeDoctor" name="DoctorName" value="@Model.DoctorName" class="form-control" placeholder="Ex: Andreea" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Caută</button>
+</form>
+
+@if (Model.PacientiByDoctor.Count == 0)
+{
+    <p>Nu s-au găsit pacienți pentru doctorul specificat.</p>
+}
+else
+{
+    <h3>Rezultate pentru doctorul: @Model.DoctorName</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nume Pacient</th>
+                <th>Rasă Pacient</th>
+                <th>Data Programare</th>
+                <th>Motiv</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pacient in Model.PacientiByDoctor)
+            {
+                <tr>
+                    <td>@pacient.NumePacient</td>
+                    <td>@pacient.RasaPacient</td>
+                    <td>@pacient.DataProgramare?.ToString("yyyy-MM-dd")</td>
+                    <td>@pacient.Motiv</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<!-- Buton "Back" pentru a reveni la pagina Pacienti -->
+<form method="get" asp-page="/Pacienti/Index" style="margin-top: 20px;">
+    <button type="submit" class="btn btn-secondary">Back</button>
+</form>

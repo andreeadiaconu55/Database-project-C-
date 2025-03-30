@@ -1,0 +1,69 @@
+﻿@page
+@model CabinetulVeterinar.Pages.NewFolder4.DetailsModel
+
+<h2>Detalii Vaccinare</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="tipVaccin">Introduceți tipul vaccinului:</label>
+        <input type="text" id="tipVaccin" name="TipVaccinCautat" value="@Model.TipVaccinCautat" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Caută</button>
+</form>
+
+<!-- Tabel 1: Vaccinuri pe doctor -->
+@if (Model.VaccinDetails.Count > 0)
+{
+    <h3>Statistici Vaccinuri per Doctor</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nume Doctor</th>
+                <th>Număr Vaccinuri</th>
+                <th>Programări Unice</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vaccin in Model.VaccinDetails)
+            {
+                <tr>
+                    <td>@vaccin.NumeDoctor</td>
+                    <td>@vaccin.NumarVaccinuri</td>
+                    <td>@vaccin.ProgramariUnice</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<!-- Tabel 2: Detalii vaccinuri și pacienți -->
+@if (Model.VaccinPacientDetails.Count > 0)
+{
+    <h3>Detalii Vaccinuri și Pacienți</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nume Pacient</th>
+                <th>Tip Vaccin</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detalii in Model.VaccinPacientDetails)
+            {
+                <tr>
+                    <td>@detalii.NumePacient</td>
+                    <td>@detalii.TipVaccin</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (!string.IsNullOrEmpty(Model.TipVaccinCautat))
+{
+    <p>Nu există detalii despre vaccinuri pentru tipul specificat.</p>
+}
+
+<!-- Buton "Back" -->
+<form method="get" asp-page="/Pacienti/Index" style="margin-top: 20px;">
+    <button type="submit" class="btn btn-secondary">Back</button>
+</form>

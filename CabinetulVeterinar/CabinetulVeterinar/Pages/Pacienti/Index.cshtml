@@ -1,0 +1,164 @@
+﻿@page
+@model CabinetulVeterinar.Pages.Pacienti.IndexModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Cabinet Veterinar - Gestionare</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Cabinet Veterinar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <form method="get" asp-page="/Interogari" class="d-inline">
+                            <button type="submit" class="btn btn-link nav-link">Consultatii</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form method="get" asp-page="/NewFolder4/Vaccin" class="d-inline">
+                            <button type="submit" class="btn btn-link nav-link">Detalii Vaccinare</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form method="get" asp-page="/NewFolder5/Tratamente" class="d-inline">
+                            <button type="submit" class="btn btn-link nav-link">Detalii Tratamente</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form method="get" asp-page="/NewFolder5/DoctoriCautareModel" class="d-inline">
+                            <button type="submit" class="btn btn-link nav-link">Căutare Doctori</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form method="get" asp-page="/NewFolder5/PacientiByDoctorModel" class="d-inline">
+                            <button type="submit" class="btn btn-link nav-link">Căutare Pacient</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <!-- Tabel pentru pacienți -->
+        <h2>Lista Pacienților</h2>
+        <p>Numărul de pacienți găsiți: <strong>@Model.ListaPacienti.Count</strong></p>
+
+        <!-- Mesaj de succes sau eroare -->
+        @if (!string.IsNullOrEmpty(Model.Message))
+        {
+            <p class="alert alert-success">@Model.Message</p>
+        }
+
+        <!-- Buton pentru adăugarea unui nou pacient -->
+        <form method="get" asp-page="/Pacienti/AddPacient" class="mb-3">
+            <button type="submit" class="btn btn-success">Adaugă Pacient</button>
+        </form>
+
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nume</th>
+                    <th>Specie</th>
+                    <th>Rasă</th>
+                    <th>Sex</th>
+                    <th>Data Nașterii</th>
+                    <th>Greutate</th>
+                    <th>Acțiuni</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.ListaPacienti.Count == 0)
+                {
+                    <tr>
+                        <td colspan="7" class="text-center">Nu au fost găsiți pacienți în baza de date.</td>
+                    </tr>
+                }
+                else
+                {
+                    @foreach (var pacient in Model.ListaPacienti)
+                    {
+                        <tr>
+                            <td>@pacient.Name</td>
+                            <td>@pacient.Specie</td>
+                            <td>@pacient.Rasa</td>
+                            <td>@pacient.Sex</td>
+                            <td>@pacient.DataNasterii?.ToString("yyyy-MM-dd")</td>
+                            <td>@pacient.Greutate</td>
+                            <td>
+                                <form method="post" asp-page-handler="Delete" style="display:inline;">
+                                    <input type="hidden" name="Pacient.Id" value="@pacient.Id" />
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Sigur doriți să ștergeți acest pacient?');">Șterge</button>
+                                </form>
+                                <form method="get" asp-page="/Pacienti/EditPacient" style="display:inline;">
+                                    <input type="hidden" name="id" value="@pacient.Id" />
+                                    <button type="submit" class="btn btn-warning btn-sm">Editează</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        <!-- Tabel pentru doctori -->
+        <h3>Lista Doctorilor</h3>
+        <p>Numărul de doctori găsiți: <strong>@Model.ListaDoctori.Count</strong></p>
+
+        <!-- Buton pentru adăugare doctor -->
+        <form method="get" asp-page="/NewFolder1/AddDoctor" class="mb-3">
+            <button type="submit" class="btn btn-primary">Adaugă Doctor</button>
+        </form>
+
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nume</th>
+                    <th>Prenume</th>
+                    <th>Specializare</th>
+                    <th>Acțiuni</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.ListaDoctori.Count == 0)
+                {
+                    <tr>
+                        <td colspan="4" class="text-center">Nu au fost găsiți doctori în baza de date.</td>
+                    </tr>
+                }
+                else
+                {
+                    @foreach (var doctor in Model.ListaDoctori)
+                    {
+                        <tr>
+                            <td>@doctor.Nume</td>
+                            <td>@doctor.Prenume</td>
+                            <td>@doctor.Specializare</td>
+                            <td>
+                                <form method="post" asp-page-handler="DeleteDoctor" style="display:inline;">
+                                    <input type="hidden" name="Doctor.Id" value="@doctor.Id" />
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Sigur doriți să ștergeți acest doctor?');">Șterge</button>
+                                </form>
+                                <form method="get" asp-page="/NewFolder1/EditDoctor" style="display:inline;">
+                                    <input type="hidden" name="id" value="@doctor.Id" />
+                                    <button type="submit" class="btn btn-warning btn-sm">Editează</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

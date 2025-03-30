@@ -1,0 +1,78 @@
+﻿@page
+@model CabinetulVeterinar.Pages.Login.LoginModel
+@{
+    ViewData["Title"] = "Autentificare Doctori";
+}
+
+<h2>Autentificare Doctori</h2>
+
+@if (string.IsNullOrEmpty(HttpContext.Session.GetString("DoctorID")))
+{
+    <!-- Formular de autentificare -->
+    <form method="post">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="LoginData.Email" value="@Model.LoginData.Email" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label for="password">Parolă</label>
+            <input type="password" id="password" name="LoginData.Password" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Autentificare</button>
+        </div>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <p class="text-danger">@Model.ErrorMessage</p>
+    }
+}
+else
+{
+    <!-- Mesaj de întâmpinare și programările doctorului -->
+    <p class="text-success">@Model.SuccessMessage</p>
+
+    <h3>Programările tale:</h3>
+    @if (Model.DoctorAppointments.Count == 0)
+    {
+        <p>Nu există programări disponibile.</p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Ora</th>
+                    <th>Pacient</th>
+                    <th>Motiv</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var appointment in Model.DoctorAppointments)
+                {
+                    <tr>
+                        <td>@appointment.AppointmentDateTime.ToString("yyyy-MM-dd")</td>
+                        <td>@appointment.AppointmentDateTime.ToString("HH:mm")</td>
+                        <td>@appointment.PatientName</td>
+                        <td>@appointment.ConsultationType</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    <!-- Buton pentru adăugare programare -->
+    <form method="get" asp-page="/NewFolder2/AddConsultatie" style="margin-top: 20px;">
+        <button type="submit" class="btn btn-primary">Adaugă Programare</button>
+    </form>
+
+
+    <!-- Buton pentru logout -->
+    <form method="post" asp-page-handler="Logout" style="margin-top: 20px;">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+}

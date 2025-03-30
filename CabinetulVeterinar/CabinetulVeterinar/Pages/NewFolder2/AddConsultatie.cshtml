@@ -1,0 +1,30 @@
+﻿@page
+@model CabinetulVeterinar.Pages.NewFolder2.AddProgramareModel
+
+<h2>Adaugă Programare</h2>
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <p class="text-danger">@Model.Message</p>
+}
+
+<form method="post">
+    <input type="hidden" name="ProgramareDetails.DoctorId" value="@HttpContext.Session.GetString("DoctorID")" />
+    <div class="form-group">
+        <label for="pacientId">ID Pacient</label>
+        <input type="number" id="pacientId" name="ProgramareDetails.PacientId" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="dataProgramare">Data Programării</label>
+        <input type="date" id="dataProgramare" name="ProgramareDetails.DataProgramare" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="oraProgramare">Ora Programării</label>
+        <input type="time" id="oraProgramare" name="ProgramareDetails.OraProgramare" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="motiv">Motiv</label>
+        <textarea id="motiv" name="ProgramareDetails.Motiv" class="form-control" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvează Programarea</button>
+</form>

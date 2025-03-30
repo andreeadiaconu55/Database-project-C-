@@ -1,0 +1,35 @@
+﻿@page "{id?}"
+@model CabinetulVeterinar.Pages.Doctori.EditDoctorModel
+
+<h2>Editează Doctor</h2>
+
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <p class="text-success">@Model.Message</p>
+}
+
+<form method="post">
+    <div class="form-group">
+        <label for="id">ID Doctor</label>
+        <input type="text" id="id" name="Doctor.Id" class="form-control" readonly value="@Model.Doctor.Id" />
+    </div>
+    <div class="form-group">
+        <label for="name">Nume</label>
+        <input type="text" id="name" name="Doctor.Name" class="form-control" required value="@Model.Doctor.Name" />
+    </div>
+    <div class="form-group">
+        <label for="specializare">Specializare</label>
+        <input type="text" id="specializare" name="Doctor.Specializare" class="form-control" required value="@Model.Doctor.Specializare" />
+    </div>
+    <div class="form-group">
+        <label for="telefon">Telefon</label>
+        <input type="text" id="telefon" name="Doctor.Telefon" class="form-control" required value="@Model.Doctor.Telefon" />
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Doctor.Email" class="form-control" required value="@Model.Doctor.Email" />
+    </div>
+    <button type="submit" class="btn btn-primary">Salvează</button>
+</form>
+
